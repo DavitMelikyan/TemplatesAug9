@@ -2,16 +2,13 @@
 #include <type_traits>
 #include <algorithm>
 
-template<class... T >
-using common_type_t = typename std::common_type<T...>::type;
-
 double max_variadic() {
     return 0.0;
 }
 
 template <typename ... Types>
-common_type_t<Types...> max_variadic(Types... args) {
-    return std::max({static_cast<common_type_t<Types...>>(args)...});
+std::common_type_t<Types...> max_variadic(Types... args) {
+    return std::max({static_cast<std::common_type_t<Types...>>(args)...});
 }
 
 int main() {

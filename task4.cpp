@@ -24,7 +24,7 @@ void unpack(std::vector<std::string>& arglist, const char* firstArg, const Types
 
 template <typename... Types>
 void unpack(std::vector<std::string>& arglist, char firstArg, const Types&... args) {
-    arglist.push_back(std::string(1, firstArg));
+    arglist.push_back(std::string(1,firstArg));
     unpack(arglist, args...);
 }
 
@@ -46,5 +46,5 @@ std::string format(const std::string& fmt, const Types&... args) {
 }
 
 int main() {
-    std::cout << format("Hello, {}! You have {} messages. {}", "Alice", 3) << std::endl;
+    std::cout << format("Hello, {}! You have {} messages.", "Alice", 3) << std::endl;
 }
